@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#ffb6d5" />
+<title>Chúc mừng 20/10 💗</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--pink:#ff4f9a;--deep:#d92779;--cream:#fff8fc}
+  body{margin:0;min-height:100svh;overflow:hidden;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#8b2455;background:radial-gradient(circle at 50% 25%,#fff 0,#fff3fa 32%,#ffd7e9 72%,#ffc0dc 100%)}
+  .glow{position:fixed;inset:0;background:radial-gradient(ellipse at center,rgba(255,255,255,.55),transparent 62%);pointer-events:none}
+  .scene{position:relative;z-index:2;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:22px 16px}
+  .card{width:min(560px,100%);text-align:center;padding:26px 22px 24px;border:1px solid rgba(255,255,255,.85);border-radius:28px;background:rgba(255,255,255,.58);box-shadow:0 18px 60px rgba(199,48,115,.15);backdrop-filter:blur(8px)}
+  .small{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:#b64b7c;font-weight:700}
+  h1{margin:8px 0 10px;font-size:clamp(2rem,8vw,3.5rem);line-height:1.05;color:var(--deep);text-shadow:0 3px 0 #fff,0 8px 25px #ffb0d2}
+  .heart-wrap{height:clamp(150px,35vw,210px);display:grid;place-items:center;margin:4px 0 8px}
+  .heart{font-size:clamp(120px,32vw,190px);line-height:1;filter:drop-shadow(0 12px 18px rgba(222,39,121,.3));animation:beat 1.2s ease-in-out infinite;cursor:pointer;user-select:none}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.09)}30%{transform:scale(1)}45%{transform:scale(1.06)}60%{transform:scale(1)}}
+  #message{white-space:pre-wrap;font-size:clamp(1rem,4vw,1.22rem);line-height:1.65;min-height:54px;color:#7b2850;margin:8px auto 16px;max-width:440px;overflow-wrap:anywhere}
+  .hint{font-size:.82rem;color:#a45478;margin:0 0 14px}
+  details{margin-top:12px;text-align:left;background:rgba(255,255,255,.7);border:1px solid #ffd0e4;border-radius:16px;padding:12px 14px}
+  summary{cursor:pointer;font-weight:700;color:#a72c67;text-align:center}
+  textarea{display:block;width:100%;min-height:105px;margin-top:12px;border:1px solid #f4a8ca;border-radius:12px;padding:12px;font:inherit;color:#7b2850;resize:vertical;background:#fffafd;outline-color:#ff6ca8}
+  .buttons{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+  button{border:0;border-radius:999px;padding:10px 15px;background:#ff5da2;color:white;font-weight:700;font-size:.9rem;cursor:pointer;box-shadow:0 5px 14px #ffb1d1}
+  button.secondary{background:#fff;color:#c52f77;border:1px solid #ffc0dc;box-shadow:none}
+  .flower{position:fixed;z-index:1;top:-12vh;pointer-events:none;animation:fall linear forwards;filter:drop-shadow(0 3px 3px #e85a9b22)}
+  @keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0deg);opacity:0}8%{opacity:1}100%{transform:translate3d(var(--drift),115vh,0) rotate(var(--spin));opacity:.9}}
+  .sparkle{position:fixed;z-index:1;pointer-events:none;color:#ff69a8;animation:twinkle 2s ease-in-out infinite alternate}
+  @keyframes twinkle{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1.25)}}
+  @media(max-height:650px){.card{padding:16px 18px}.heart-wrap{height:120px}.heart{font-size:115px}h1{font-size:2rem}#message{margin:4px auto 8px}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<main class="scene">
+  <section class="card">
+    <div class="small">Gửi đến những điều dịu dàng nhất</div>
+    <h1>Chúc mừng<br>20/10</h1>
+    <div class="heart-wrap"><div class="heart" id="heart" aria-label="Trái tim hồng">💗</div></div>
+    <div id="message">Chúc em 20-10 vui vẻ, luôn xinh đẹp, hạnh phúc, manifest thật nhiều điều. Anh ngưỡng mộ tinh thần ham học hỏi của vợ. Chúc em đi được nhiều nơi muốn đến, học nhiều thứ muốn học và càng ngày yêu anh nhiều hơn, yêu vợ nhắm nhắm nhuôn. 💗</div>
+    <p class="hint">Chạm vào trái tim để hoa rơi nhiều hơn nhé!</p>
+  </section>
+</main>
+<script>
+const flowers=['🌸','🌷','🌺','🌼','💮','🌹','🪷','💕','💖','✨'];
+function rain(amount=45){
+  for(let i=0;i<amount;i++){
+    const f=document.createElement('span'); f.className='flower'; f.textContent=flowers[Math.floor(Math.random()*flowers.length)];
+    f.style.left=Math.random()*100+'vw'; f.style.fontSize=(16+Math.random()*25)+'px';
+    f.style.animationDuration=(4+Math.random()*7)+'s'; f.style.animationDelay=(Math.random()*2)+'s';
+    f.style.setProperty('--drift',(Math.random()*180-90)+'px'); f.style.setProperty('--spin',(Math.random()*720-360)+'deg');
+    document.body.appendChild(f); setTimeout(()=>f.remove(),14000);
+  }
+}
+function sparkles(){for(let i=0;i<28;i++){const s=document.createElement('span');s.className='sparkle';s.textContent='✦';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.fontSize=(8+Math.random()*13)+'px';s.style.animationDelay=Math.random()*2+'s';document.body.appendChild(s)}}
+document.getElementById('heart').addEventListener('click',()=>rain(120));
+sparkles(); rain(65);
+</script>
+</body>
+</html>
